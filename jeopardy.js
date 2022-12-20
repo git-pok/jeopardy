@@ -15,26 +15,47 @@ let RANDOM_CATG;
 // selects a random category id form the arr, randomId,
 // changes the value of RANDOM_CATG to randomId 
 async function getCategoryIds() { 
-    const ctgryQry = `https://jservice.io/api/categories?count=7`;
+    // before shuffle syntax
+    // const ctgryQry = `https://jservice.io/api/categories?count=7`;
+    // new shuffle syntaxes
+    const ctgryQry = `https://jservice.io/api/categories?count=31`;
     const apiRes = await axios.get(ctgryQry);
     const data = apiRes.data;
     // console.log('DATA ', data);
     // filters category with id 3 because it has no clues
     const ids = data.filter((datas) => datas.id !== 3);
+    // new shuffle syntax
+    idsArrShuffled = _.shuffle(ids);
+    // creates an array of 6 values
+    idsArr = idsArrShuffled.slice(0, 6);
+    // console.log('idsArrShuffle ', idsArrShuffle);
     // console.log('IDS ', ids);
-    //creates an array of 6 different titles
-    categories = ids.map((x) => x.title);
+    // creates an array of 6 different titles
+    // before shuffle syntax
+    // categories = ids.map((x) => x.title);
+    // new shuffle syntax
+    categories = idsArr.map((x) => x.title);
     // console.log('CATEGORIES ARR ', categories);
     // console.log('IDS ARRAY ', ids.map((x) => x.id));
-    //creates an array of 6 different category ids
-    idsArr = ids.map((x) => x.id);
+    // creates an array of 6 different category ids
+    // before shuffle syntax
+    // idsArr = ids.map((x) => x.id);
+    // new shuffle syntax
+    idsArr = idsArr.map((x) => x.id);
     // console.log('IDS ARRAY ', idsArr);
     const randomIdSelector = Math.floor(Math.random() * idsArr.length);
     // extracts a random value form the array
     const randomId = idsArr[randomIdSelector];
     // console.log('RANDOM ID ', randomId);
     // changes the value of RANDOM_CATG to the random value  
-    return RANDOM_CATG = randomId; 
+    return RANDOM_CATG = randomId;
+    // new shuffle syntaxes
+    // const ctgryQry = `https://jservice.io/api/categories?count=31`;
+    // const apiRes = await axios.get(ctgryQry);
+    // const data = apiRes.data;
+    // const ids = data.filter((datas) => datas.id !== 3);
+    // idsArr = ids.map((x) => x.id);
+    // idsArr.slice(0, 6); 
 }
 
 // test run, not included with file
