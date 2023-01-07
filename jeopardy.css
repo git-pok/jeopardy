@@ -1,10 +1,3 @@
-/* some colors you may find useful:
-  #115ff4
-  #060ce9
-  #28a200
-  #8d2ab5
-  #74119c
-*/
 .loader {
   display: none;
   margin: 0px auto;
@@ -30,7 +23,7 @@
 body {
   background-color: rgb(6, 12, 233);
 }
-/*used to be body, but button stretched when board loaded*/
+
 .board-div {
   display: flex;
   justify-content: center;
